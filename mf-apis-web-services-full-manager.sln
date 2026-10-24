@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.37806.7 d17.14
+VisualStudioVersion = 17.14.37806.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mf-apis-web-services-full-manager", "mf-apis-web-services-full-manager\mf-apis-web-services-full-manager.csproj", "{115DB571-9C95-4398-B87D-E29606D79A13}"
 EndProject
