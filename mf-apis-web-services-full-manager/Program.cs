@@ -1,8 +1,16 @@
 
+using mf_apis_web_services_full_manager.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Adiciona suporte aos Controllers
 builder.Services.AddControllers();
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
 
 // Configura o Swagger
 builder.Services.AddEndpointsApiExplorer();
