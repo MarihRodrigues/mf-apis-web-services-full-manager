@@ -47,6 +47,7 @@ namespace mf_apis_web_services_full_manager.Controllers
         {
 
             var model = await _context.Veiculos
+                .Include(t => t.Consumos)
                 .FirstOrDefaultAsync(c => c.Id == id);
 
             if (model == null) return NotFound();

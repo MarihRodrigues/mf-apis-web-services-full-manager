@@ -1,15 +1,21 @@
 
 using mf_apis_web_services_full_manager.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Adiciona suporte aos Controllers
-builder.Services.AddControllers();
+// Ignora ciclos de referência na serialização JSON
+builder.Services.AddControllers()
+    .AddJsonOptions(x =>
+        x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
+// Configura o Entity Framework com SQL Server
 builder.Services.AddDbContext<AppDbContext>(options =>
-
-options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnection")
+    )
 );
 
 // Configura o Swagger
